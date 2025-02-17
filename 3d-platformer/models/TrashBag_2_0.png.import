@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ri7ib1vog2f"
-path.s3tc="res://.godot/imported/Roof Flat Center_colormap.png-b62de89b2bab1806585c3ad45d955970.s3tc.ctex"
+uid="uid://c6ua2kg6py5ms"
+path.s3tc="res://.godot/imported/TrashBag_2_0.png-b747bf7daac03a6ccc3cb008e080de35.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "33f661f7c733454fbfdf8fca780aabff"
+"md5": "ae8ba728fcf7e919305cebabeacf184e"
 }
 
 [deps]
 
-source_file="res://models/Roof Flat Center_colormap.png"
-dest_files=["res://.godot/imported/Roof Flat Center_colormap.png-b62de89b2bab1806585c3ad45d955970.s3tc.ctex"]
+source_file="res://models/TrashBag_2_0.png"
+dest_files=["res://.godot/imported/TrashBag_2_0.png-b747bf7daac03a6ccc3cb008e080de35.s3tc.ctex"]
 
 [params]
 
