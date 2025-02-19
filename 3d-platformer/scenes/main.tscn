@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3gf711eygx88"]
+[gd_scene load_steps=4 format=3 uid="uid://c3gf711eygx88"]
 
 [ext_resource type="PackedScene" uid="uid://wnivt85d685b" path="res://objects/player.tscn" id="1_3ofs5"]
 [ext_resource type="PackedScene" uid="uid://dx58g588il18g" path="res://models/Roof Flat Center.glb" id="1_sb282"]
+
+[sub_resource type="Environment" id="Environment_djdn4"]
+background_mode = 1
+background_color = Color(0.716296, 0.716296, 0.716296, 1)
+ambient_light_color = Color(0.497827, 0.272715, 0.455016, 1)
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.974425, 0.224713, 0, -0.224713, 0.974425, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_djdn4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10625, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_3ofs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.270292, 3.45408, -8.12359)
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Roof" parent="World" instance=ExtResource("1_sb282")]
-transform = Transform3D(2.11787, 0, 0, 0, 0.726127, -2.98023e-08, 0, 0, 1.95957, 0.605617, 1.2288, -4.48087)
+[node name="Root Scene" parent="World" instance=ExtResource("1_sb282")]
+transform = Transform3D(5.27199, 0, 0, 0, 8.63367, -1.64756, 0, 1.99102, 7.14434, -0.846369, 1.28132, -5.5562)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0865124, 0.996251, 0, -0.996251, -0.0865124, -0.487373, 6.46555, -4.91832)
