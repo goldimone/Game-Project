@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj1p1gqdgy1ay"]
+
+[ext_resource type="PackedScene" uid="uid://dx58g588il18g" path="res://models/Roof Flat Center.glb" id="1_lvjys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7l27"]
+size = Vector3(2.00151, 0.156348, 1.9768)
+
+[node name="Roof" instance=ExtResource("1_lvjys")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.823362, 0, 0, 0, 1, 0.00319815, 0.0591389, 0.0137915)
+shape = SubResource("BoxShape3D_t7l27")

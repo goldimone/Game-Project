@@ -1,0 +1,28 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740210271
+export_presets.cfg::TextFile::-1::1740210229::0::1::::<><>::
+icon.svg::CompressedTexture2D::7879886542185885453::1740210229::1740210270::1::::<><>::
+node_3d.tscn::PackedScene::2545835474206900960::1740210229::0::1::::<><>::
+::res://models/::1740210271
+Coin.glb::PackedScene::6392081134595578776::1740210229::1740210271::1::::<><>::
+Crate.glb::PackedScene::1407155222630151752::1740210229::1740210271::1::::<><>::
+Donut.glb::PackedScene::2809922573282093934::1740210229::1740210271::1::::<><>::
+Dumpster.glb::PackedScene::7669950265804364317::1740210229::1740210271::1::::<><>::
+icon.svg::CompressedTexture2D::1441634720782361913::1740210229::1740210271::1::::<><>::
+mech.gd::GDScript::-1::1740210229::0::1::::<>Node3D<>::
+Mech.glb::PackedScene::753338631987302443::1740210229::1740210271::1::::<><>::uid://d2k1fdyba0hll::::res://models/Mech_Atlas.png
+Mech_Atlas.png::CompressedTexture2D::9076592372320010757::1740210229::1740210270::1::::<><>::
+Robot Enemy Large.glb::PackedScene::8674012961960015708::1740210229::1740210271::1::::<><>::
+Robot Enemy.glb::PackedScene::8811112801022005000::1740210229::1740210271::1::::<><>::
+Roof Flat Center.glb::PackedScene::8837552791090137224::1740210229::1740210271::1::::<><>::uid://c8ri7ib1vog2f::::res://models/Roof Flat Center_colormap.png
+Roof Flat Center_colormap.png::CompressedTexture2D::7124710933548923123::1740210229::1740210271::1::::<><>::
+TrashBag_2.fbx::PackedScene::5949196021950415176::1740210229::1740210271::1::::<><>::uid://c6ua2kg6py5ms::::res://models/TrashBag_2_0.png
+TrashBag_2_0.png::CompressedTexture2D::6990031827613683250::1740210229::1740210271::1::::<><>::
+::res://objects/::1740211319
+player.gd::GDScript::-1::1740210229::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::1571515758744151849::1740211319::0::1::::<><>::res://objects/player.gd<>uid://ky6m3bwgskat::::res://models/Mech.glb
+Garbage.tscn::PackedScene::4635890929395922781::1740211604::0::1::::<><>::uid://dhjm7wdaerkwb::::res://models/Dumpster.glb
+roof.tscn::PackedScene::3072751623576240128::1740211318::0::1::::<><>::uid://dx58g588il18g::::res://models/Roof Flat Center.glb
+root_node.gd::GDScript::-1::1740210229::0::1::::<>Node3D<>::
+::res://scenes/::1740211409
+main.tscn::PackedScene::6750877392130352399::1740211444::0::1::::<><>::uid://wnivt85d685b::::res://objects/player.tscn<>uid://bj1p1gqdgy1ay::::res://objects/roof.tscn

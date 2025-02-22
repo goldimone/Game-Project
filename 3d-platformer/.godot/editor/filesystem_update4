@@ -1,0 +1,5 @@
+res://objects/player.tscn
+res://scenes/main.tscn
+res://objects/roof.tscn
+res://objects/crate.tscn
+res://objects/player.gd
