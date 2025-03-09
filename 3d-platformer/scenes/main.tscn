@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3gf711eygx88"]
+[gd_scene load_steps=12 format=3 uid="uid://c3gf711eygx88"]
 
 [ext_resource type="PackedScene" uid="uid://wnivt85d685b" path="res://objects/player.tscn" id="1_3ofs5"]
+[ext_resource type="Script" path="res://scenes/view.gd" id="1_l2m58"]
 [ext_resource type="PackedScene" uid="uid://bj1p1gqdgy1ay" path="res://objects/roof.tscn" id="2_yu08u"]
 [ext_resource type="PackedScene" uid="uid://b7bwpf6gc8rov" path="res://objects/Dumpsters.tscn" id="3_vxiga"]
-[ext_resource type="PackedScene" uid="uid://ubvv16cgkuce" path="res://models/Crate.glb" id="4_n400c"]
+[ext_resource type="PackedScene" uid="uid://cngbkcy15feee" path="res://objects/crate.tscn" id="4_3684u"]
 [ext_resource type="PackedScene" uid="uid://dvt0yxqlvgeoq" path="res://models/Robot Enemy Large.glb" id="5_dkvkn"]
 [ext_resource type="PackedScene" uid="uid://dxsf0gbems585" path="res://models/Robot Enemy.glb" id="6_x2o4b"]
-[ext_resource type="PackedScene" uid="uid://bgbfaqp77n1r3" path="res://models/Donut.glb" id="7_j5pnc"]
+[ext_resource type="PackedScene" uid="uid://62nli1x8on57" path="res://objects/donut.tscn" id="7_61nce"]
 [ext_resource type="PackedScene" uid="uid://cq03nia1nmim7" path="res://models/TrashBag_2.fbx" id="8_lck43"]
-[ext_resource type="PackedScene" uid="uid://cxcmv3utvcef5" path="res://models/Coin.glb" id="9_q14xg"]
+[ext_resource type="PackedScene" uid="uid://77drdlegobp7" path="res://objects/coin.tscn" id="9_3733b"]
 
 [sub_resource type="Environment" id="Environment_djdn4"]
 background_mode = 1
@@ -21,16 +22,22 @@ transform = Transform3D(1, 0, 0, 0, 0.974425, 0.224713, 0, -0.224713, 0.974425, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_djdn4")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 1.21034e-08, -1.02218e-07, -1.21035e-08, 1, -1.93715e-07, 1.02218e-07, 1.78814e-07, 1, -2, -2.08573, 35.9782)
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("1_l2m58")
+target = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("1_3ofs5")]
+[node name="Camera3D" type="Camera3D" parent="View"]
+transform = Transform3D(41.7413, 1.86019e-08, -1.39074e-07, -7.76468e-07, 1, 2.5332e-07, 5.80518e-06, -2.5332e-07, 0.999994, -2, -2.08573, 35.9782)
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("1_3ofs5")]
 transform = Transform3D(-0.999829, -0.002485, -0.01832, -0.00694416, 0.968846, 0.247562, 0.017134, 0.247648, -0.968697, -1.9155, -5.81862, 25.3513)
+view = NodePath("../View/Camera3D")
+jump_strength = 15
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="Road" parent="World" instance=ExtResource("2_yu08u")]
-transform = Transform3D(21.8034, 0, 0, 0, 1.39168, -7.60543, 0, 0.331033, 31.9738, 0, 0, 0)
+transform = Transform3D(21.747, 0, 0, 0, 1.39024, -7.37408, 0, 0.320962, 31.9406, 0, 0, 0)
 
 [node name="Dumpster" parent="World" instance=ExtResource("3_vxiga")]
 transform = Transform3D(0.134741, 0.0654418, -4.21319, -1.51702, 2.89499, 0.0727113, 6.75025, 0.649301, 0.100441, 17.4108, 2.88025, -9.96941)
@@ -38,11 +45,14 @@ transform = Transform3D(0.134741, 0.0654418, -4.21319, -1.51702, 2.89499, 0.0727
 [node name="Dumpster2" parent="World" instance=ExtResource("3_vxiga")]
 transform = Transform3D(0.0881964, -0.0659827, 4.21363, 1.5925, 2.88744, 0.0788465, -6.7336, 0.682018, 0.0738367, -18.4905, -1.05491, 6.74164)
 
-[node name="Crate" parent="World" instance=ExtResource("4_n400c")]
-transform = Transform3D(33.9806, 0.180888, -0.000539865, -0.176263, 33.0886, -7.73478, -0.0406482, 7.73468, 33.0891, 0, 0.259578, 0.0598615)
+[node name="Crate3" parent="World" instance=ExtResource("4_3684u")]
+transform = Transform3D(19.578, 0.0936106, -3.55508, -0.902011, 19.3717, -4.45731, 3.44003, 4.54671, 19.064, -5.49036, 1.19565, -3.99926)
 
-[node name="Crate2" parent="World" instance=ExtResource("4_n400c")]
-transform = Transform3D(33.9806, 0.180888, -0.000539865, -0.176263, 33.0886, -7.73478, -0.0406481, 7.73468, 33.0891, -7, 0.259578, 0.0598615)
+[node name="Crate2" parent="World" instance=ExtResource("4_3684u")]
+transform = Transform3D(29.9996, 0.159696, -0.000476628, -0.155613, 29.2121, -6.82861, -0.035886, 6.82852, 29.2125, -0.956465, 0.259578, 0.0598615)
+
+[node name="Crate" parent="World" instance=ExtResource("4_3684u")]
+transform = Transform3D(19.9997, 0.106464, -0.000317813, -0.103742, 19.4747, -4.55241, -0.023924, 4.55235, 19.475, -7, 0.259578, 0.0598615)
 
 [node name="BIGEnemy_bot_1" parent="World" instance=ExtResource("5_dkvkn")]
 transform = Transform3D(5.17918, 0, 0, 0, 5.02601, -1.25024, 0, 1.25024, 5.02601, 0, 4.15291, -16.5468)
@@ -50,20 +60,25 @@ transform = Transform3D(5.17918, 0, 0, 0, 5.02601, -1.25024, 0, 1.25024, 5.02601
 [node name="SMenemy_bot_2" parent="World" instance=ExtResource("6_x2o4b")]
 transform = Transform3D(1.95403, 0, 0, 0, 1.95403, 8.9407e-08, 0, -8.9407e-08, 1.95403, 8.14834, 0.268896, 0.112617)
 
-[node name="Donut" parent="World" instance=ExtResource("7_j5pnc")]
-transform = Transform3D(0.0933723, 0, 0, 0, 0.102019, 1.86265e-09, 0, -1.86265e-09, 0.102019, -2.47933, -0.867592, 11.4869)
+[node name="Donut" parent="World" instance=ExtResource("7_61nce")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 3.65157e-09, 0, -3.65157e-09, 0.1, -2.47933, -0.867592, 11.4869)
 
 [node name="TrashBag_2" parent="World" instance=ExtResource("8_lck43")]
 transform = Transform3D(6.39453, 0, 0, 0, 11.0725, -1.59058, 0, 2.47074, 7.12811, -12.5866, -0.173511, 1.72192)
 
-[node name="Coin1" parent="World" instance=ExtResource("9_q14xg")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -2.07833, 15.7514)
+[node name="Coin" parent="World" instance=ExtResource("9_3733b")]
+transform = Transform3D(1.01987, 0, 0, 0, 1.01987, 4.47035e-08, 0, -4.47035e-08, 1.01987, 0, -2.07833, 15.7514)
 
-[node name="Coin2" parent="World" instance=ExtResource("9_q14xg")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 1.3411e-07, 0, -1.3411e-07, 0.999999, 0.19902, 6.65461, 1.63618)
+[node name="Coin3" parent="World" instance=ExtResource("9_3733b")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 1.93715e-07, 0, -1.93715e-07, 0.999999, -0.751675, 6.65461, 1.63618)
 
-[node name="Coin3" parent="World" instance=ExtResource("9_q14xg")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 2.23517e-07, 0, -2.23517e-07, 0.999999, 7.13035, 3.29633, -8.77467)
+[node name="Coin2" parent="World" instance=ExtResource("9_3733b")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 2.38419e-07, 0, -2.38419e-07, 0.999999, 7.13035, 3.29633, -8.77467)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0865124, 0.996251, 0, -0.996251, -0.0865124, -0.487373, 24.0052, -0.873486)
+
+[connection signal="coin_collected" from="Player" to="Player" method="_on_coin_collected"]
+[connection signal="donut_collected" from="Player" to="Player" method="_on_donut_collected"]
+[connection signal="body_entered" from="World/Donut" to="Player" method="_on_donut_body_entered"]
+[connection signal="body_entered" from="World/Coin" to="Player" method="_on_coin_body_entered"]

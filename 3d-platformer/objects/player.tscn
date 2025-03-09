@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://ky6m3bwgskat" path="res://models/Mech.glb" id="1_mpbrr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfak4"]
-size = Vector3(1.62677, 6.60898, 2.08325)
+size = Vector3(2.41359, 3.08783, 2.08325)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_1b2o2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.77371, 0, 0, 0, -0.400606, 0, 0, 0, 0.941734, -0.0101872, 1.35128, 0.295146)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0246105, 1.52096, 0.295146)
 shape = SubResource("BoxShape3D_nfak4")
 
 [node name="Character" parent="." instance=ExtResource("1_mpbrr")]
