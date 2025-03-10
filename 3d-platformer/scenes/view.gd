@@ -18,8 +18,7 @@ var zoom = 10
 
 func _ready():
 	camera_rotation = rotation_degrees # Initial rotation
-	
-	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
