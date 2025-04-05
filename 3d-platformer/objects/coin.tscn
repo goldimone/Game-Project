@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://77drdlegobp7"]
+[gd_scene load_steps=10 format=4 uid="uid://77drdlegobp7"]
 
-[ext_resource type="Script" path="res://objects/coin.gd" id="1_78fkc"]
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_78fkc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txvq5"]
 resource_name = "Yellow"
@@ -70,6 +70,16 @@ shadow_mesh = SubResource("ArrayMesh_ospfa")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hxrn4"]
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_u8dxt"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6t28f"]
+material = SubResource("ORMMaterial3D_u8dxt")
+
+[sub_resource type="Curve" id="Curve_yh6o3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494975, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Coin" type="Area3D"]
 script = ExtResource("1_78fkc")
 
@@ -80,5 +90,17 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hxrn4")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+mesh = SubResource("SphereMesh_6t28f")
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+damping_min = 0.5
+damping_max = 0.5
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+scale_amount_curve = SubResource("Curve_yh6o3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

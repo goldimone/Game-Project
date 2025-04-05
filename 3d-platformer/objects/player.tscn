@@ -1,16 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://wnivt85d685b"]
+[gd_scene load_steps=7 format=3 uid="uid://wnivt85d685b"]
 
-[ext_resource type="Script" path="res://objects/player.gd" id="1_1b2o2"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_1b2o2"]
 [ext_resource type="PackedScene" uid="uid://ky6m3bwgskat" path="res://models/Mech.glb" id="1_mpbrr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfak4"]
-size = Vector3(2.41359, 3.08783, 2.08325)
+size = Vector3(1.62677, 6.60898, 2.08325)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_2m5re"]
+shading_mode = 0
+albedo_color = Color(0.15255, 0.197556, 0.251103, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dhgoa"]
+material = SubResource("ORMMaterial3D_2m5re")
+
+[sub_resource type="Curve" id="Curve_c6h6v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494975, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_1b2o2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0246105, 1.52096, 0.295146)
+transform = Transform3D(-1.5, 0, 6.55671e-08, 0, 0.5, 0, -1.31134e-07, 0, -0.75, -0.0101872, 1.35128, 0.295146)
 shape = SubResource("BoxShape3D_nfak4")
 
 [node name="Character" parent="." instance=ExtResource("1_mpbrr")]
@@ -27,5 +38,16 @@ bones/9/rotation = Quaternion(0.907057, 0.000210048, -9.63208e-05, 0.421008)
 bones/10/rotation = Quaternion(-9.34961e-05, 0.599866, 0.800101, 8.10817e-05)
 bones/16/rotation = Quaternion(0, 1.32349e-23, 1, 0)
 bones/18/rotation = Quaternion(0, 1.32349e-23, 1, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 3
+mesh = SubResource("SphereMesh_dhgoa")
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+damping_min = 0.5
+damping_max = 0.5
+scale_amount_curve = SubResource("Curve_c6h6v")
 
 [editable path="Character"]
