@@ -13,5 +13,5 @@ func _on_body_exited(body):
 		$Timer.stop()
 
 func _on_timer_timeout():
-	Global.player.health -= 10
+	Global.player.health -= 10	
 	print("health: ", Global.player.health)

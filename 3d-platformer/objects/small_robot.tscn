@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/small_robot.gd" id="1_vijvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4age5"]
+size = Vector3(1.43854, 0.666948, 0.521973)
 
 [node name="SmallRobot" type="CharacterBody3D"]
 script = ExtResource("1_vijvi")
@@ -25,7 +26,7 @@ bones/16/rotation = Quaternion(0.496003, 0.498661, -0.501307, 0.503994)
 bones/20/position = Vector3(-0.00595662, 0.000227518, -0.000656493)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 0.75, 0, 0, 0, 1.25, 0, 0.356396, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00332642, 0.410393, 0.0192871)
 shape = SubResource("BoxShape3D_4age5")
 
 [editable path="Enemy"]

@@ -19,6 +19,7 @@ point_count = 3
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_1b2o2")
+jump_strength = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1.5, 0, 6.55671e-08, 0, 0.5, 0, -1.31134e-07, 0, -0.75, -0.0101872, 1.35128, 0.295146)
@@ -27,17 +28,17 @@ shape = SubResource("BoxShape3D_nfak4")
 [node name="Character" parent="." instance=ExtResource("1_mpbrr")]
 
 [node name="Skeleton3D" parent="Character/RootNode/RobotArmature" index="0"]
-bones/0/position = Vector3(7.27596e-12, -0.00917377, 0.0173872)
-bones/0/rotation = Quaternion(0.582986, 9.31323e-10, -5.25688e-10, 0.812482)
-bones/2/rotation = Quaternion(0.172875, 1.17414e-07, 2.06083e-08, 0.984944)
-bones/3/rotation = Quaternion(0.224273, -4.6469e-07, -5.34709e-08, 0.974526)
-bones/4/rotation = Quaternion(0.611891, 3.11151e-06, 1.96948e-06, 0.790942)
-bones/6/rotation = Quaternion(0.907057, -0.000209993, 9.62471e-05, 0.421008)
-bones/7/rotation = Quaternion(9.34961e-05, 0.599866, 0.800101, -8.10817e-05)
-bones/9/rotation = Quaternion(0.907057, 0.000210048, -9.63208e-05, 0.421008)
-bones/10/rotation = Quaternion(-9.34961e-05, 0.599866, 0.800101, 8.10817e-05)
-bones/16/rotation = Quaternion(0, 1.32349e-23, 1, 0)
-bones/18/rotation = Quaternion(0, 1.32349e-23, 1, 0)
+bones/0/position = Vector3(7.27596e-12, -0.00909037, 0.017456)
+bones/0/rotation = Quaternion(0.580261, -2.51569e-05, -2.25007e-05, 0.814431)
+bones/2/rotation = Quaternion(0.172875, 8.94956e-08, 2.55092e-08, 0.984944)
+bones/3/rotation = Quaternion(0.215493, 1.65434e-05, 1.90987e-05, 0.976505)
+bones/4/rotation = Quaternion(0.598136, 4.28171e-05, 3.28102e-05, 0.801395)
+bones/6/rotation = Quaternion(0.908572, -0.000229787, 7.94844e-05, 0.417729)
+bones/7/rotation = Quaternion(9.35067e-05, 0.599761, 0.800179, -8.10695e-05)
+bones/9/rotation = Quaternion(0.908149, 0.000190957, -0.000111726, 0.418647)
+bones/10/rotation = Quaternion(-9.34804e-05, 0.600021, 0.799985, 8.10998e-05)
+bones/16/position = Vector3(0.00998353, -0.00058392, 0.000953062)
+bones/18/position = Vector3(-0.00998353, -0.000619417, 0.000953062)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 amount = 3
@@ -49,5 +50,13 @@ initial_velocity_max = 1.0
 damping_min = 0.5
 damping_max = 0.5
 scale_amount_curve = SubResource("Curve_c6h6v")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.679378, 2.27646, 0.512983)
+target_position = Vector3(0, 0, 1)
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701832, 2.27646, 0.512983)
+target_position = Vector3(0, 0, 1)
 
 [editable path="Character"]

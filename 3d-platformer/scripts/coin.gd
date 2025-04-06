@@ -8,8 +8,12 @@ var grabbed := false
 func _on_body_entered(body):
 	if body.has_method("collect_coin") and !grabbed:
 		body.collect_coin()
+		
+		Audio.play("res://sounds/Coin_recieved.mp3")
+		
 		$MeshInstance3D.queue_free() # Make invisible
 		$CPUParticles3D.queue_free() # Make invisible
+		
 		grabbed = true
 
 # Rotating, animating up and down
