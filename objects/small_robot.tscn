@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://doha0ayin2nnn"]
+
+[ext_resource type="PackedScene" uid="uid://dxsf0gbems585" path="res://models/Robot Enemy.glb" id="1_eu7c5"]
+[ext_resource type="Script" path="res://scripts/small_robot.gd" id="1_vijvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4age5"]
+size = Vector3(1.43854, 0.666948, 0.521973)
+
+[node name="SmallRobot" type="CharacterBody3D"]
+script = ExtResource("1_vijvi")
+
+[node name="Enemy" parent="." instance=ExtResource("1_eu7c5")]
+
+[node name="Skeleton3D" parent="Enemy/RootNode/CharacterArmature" index="0"]
+bones/1/rotation = Quaternion(1.27676e-15, 2.38419e-07, -3.72528e-09, 1)
+bones/4/rotation = Quaternion(-0.684259, -0.186168, 0.677735, -0.194442)
+bones/5/rotation = Quaternion(-0.462385, 0.492092, -0.464188, 0.573215)
+bones/6/rotation = Quaternion(0.28584, -0.199766, 0.727032, 0.59145)
+bones/8/rotation = Quaternion(0.714607, -0.203104, 0.645443, 0.177453)
+bones/9/rotation = Quaternion(-0.462384, -0.492093, 0.464188, 0.573215)
+bones/10/rotation = Quaternion(0.28584, 0.199767, -0.727032, 0.59145)
+bones/12/rotation = Quaternion(0.0139373, -0.00244674, -0.00244673, 0.999897)
+bones/12/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(0.00595662, 0.000227518, -0.000656491)
+bones/16/rotation = Quaternion(0.496003, 0.498661, -0.501307, 0.503994)
+bones/20/position = Vector3(-0.00595662, 0.000227518, -0.000656493)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00332642, 0.410393, 0.0192871)
+shape = SubResource("BoxShape3D_4age5")
+
+[editable path="Enemy"]

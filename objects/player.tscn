@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://wnivt85d685b"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_1b2o2"]
+[ext_resource type="PackedScene" uid="uid://ky6m3bwgskat" path="res://models/Mech.glb" id="1_mpbrr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfak4"]
+size = Vector3(1.62677, 6.60898, 2.08325)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_2m5re"]
+shading_mode = 0
+albedo_color = Color(0.15255, 0.197556, 0.251103, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dhgoa"]
+material = SubResource("ORMMaterial3D_2m5re")
+
+[sub_resource type="Curve" id="Curve_c6h6v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494975, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_1b2o2")
+jump_strength = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.5, 0, 6.55671e-08, 0, 0.5, 0, -1.31134e-07, 0, -0.75, -0.0101872, 1.35128, 0.295146)
+shape = SubResource("BoxShape3D_nfak4")
+
+[node name="Character" parent="." instance=ExtResource("1_mpbrr")]
+
+[node name="Skeleton3D" parent="Character/RootNode/RobotArmature" index="0"]
+bones/0/position = Vector3(7.27596e-12, -0.00909037, 0.017456)
+bones/0/rotation = Quaternion(0.580261, -2.51569e-05, -2.25007e-05, 0.814431)
+bones/2/rotation = Quaternion(0.172875, 8.94956e-08, 2.55092e-08, 0.984944)
+bones/3/rotation = Quaternion(0.215493, 1.65434e-05, 1.90987e-05, 0.976505)
+bones/4/rotation = Quaternion(0.598136, 4.28171e-05, 3.28102e-05, 0.801395)
+bones/6/rotation = Quaternion(0.908572, -0.000229787, 7.94844e-05, 0.417729)
+bones/7/rotation = Quaternion(9.35067e-05, 0.599761, 0.800179, -8.10695e-05)
+bones/9/rotation = Quaternion(0.908149, 0.000190957, -0.000111726, 0.418647)
+bones/10/rotation = Quaternion(-9.34804e-05, 0.600021, 0.799985, 8.10998e-05)
+bones/16/position = Vector3(0.00998353, -0.00058392, 0.000953062)
+bones/18/position = Vector3(-0.00998353, -0.000619417, 0.000953062)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 3
+mesh = SubResource("SphereMesh_dhgoa")
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+damping_min = 0.5
+damping_max = 0.5
+scale_amount_curve = SubResource("Curve_c6h6v")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.679378, 2.27646, 0.512983)
+target_position = Vector3(0, 0, 1)
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701832, 2.27646, 0.512983)
+target_position = Vector3(0, 0, 1)
+
+[editable path="Character"]
