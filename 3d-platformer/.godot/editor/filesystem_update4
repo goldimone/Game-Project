@@ -1,5 +1,13 @@
-res://objects/player.tscn
 res://scenes/main.tscn
-res://objects/roof.tscn
-res://objects/crate.tscn
-res://objects/player.gd
+res://objects/player.tscn
+res://scenes/bg-game.tscn
+res://objects/node_3d.tscn
+res://scripts/player.gd
+res://scenes/player.tscn
+res://scripts/view.gd
+res://scripts/coin.gd
+res://objects/bg-game.tscn
+res://objects/bullet.tscn
+res://scripts/bullet.gd
+res://objects/small_robot.tscn
+res://scripts/hitbox.gd

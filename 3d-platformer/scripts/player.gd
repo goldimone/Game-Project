@@ -5,6 +5,7 @@ signal donut_collected
 
 @export_subgroup("Components")
 @export var view: Node3D
+@onready var coin_collect: AudioStreamPlayer3D = $CoinCollect
 
 @export_subgroup("Properties")
 @export var movement_speed = 350
@@ -23,8 +24,16 @@ var coins = 0
 var donuts = 0
 var health = 100
 
+
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
+@onready var gun1 = $RayCast3D
+@onready var gun2 = $RayCast3D2
+
+#Bullets
+var bullets = load("res://objects/bullet.tscn")
+var instance1 
+var instance2
 
 # Functions
 
@@ -33,6 +42,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if health <= 0:
+		Audio.play("res://sounds/game over sound.mp3")
 		get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
@@ -72,16 +82,12 @@ func handle_effects(delta):
 		if speed_factor > 0.05:
 			if animation.current_animation != "RobotArmature|Walk":
 				animation.play("RobotArmature|Walk", 0.1)
+		elif animation.current_animation != "RobotArmature|Walk":
+			animation.play("RobotArmature|Idle")
 		elif Input.is_action_pressed("jump"):
 			animation.play("RobotArmature|Jump",0.1)
-			await get_tree().create_timer(.166).timeout
-			animation.seek(.166)
-			animation.pause()
-		elif animation.current_animation != "RobotArmature|Idle":
-			animation.play("RobotArmature|Idle", 0.1)
 	elif animation.current_animation != "RobotArmature|Jump":
-		animation.play("RobotArmature|Jump", 0.1,1.0,true)
-
+		animation.play("RobotArmature|Jump", 0.1)	
 # Handle movement input
 
 func handle_controls(delta):
@@ -104,7 +110,11 @@ func handle_controls(delta):
 	if Input.is_action_just_released("jump"):
 		if jump_single or jump_double:
 			jump()
-
+	
+	if Input.is_action_just_pressed("shoot"):
+		Audio.play("res://sounds/shoot sound.mp3")
+		shoots()
+	
 # Handle gravity
 
 func handle_gravity(delta):
@@ -126,6 +136,18 @@ func jump():
 	else:
 		jump_double = false;
 
+func shoots():
+	if animation.current_animation != "RobotArmature|Shoot_Small":
+		animation.play("RobotArmature|Shoot_Small",0.1)
+		instance1 = bullets.instantiate()
+		instance2 = bullets.instantiate()
+		instance1.position = gun1.global_position
+		instance2.position = gun2.global_position
+		instance1.transform.basis = gun1.global_transform.basis
+		instance2.transform.basis = gun2.global_transform.basis
+		get_parent().add_child(instance1)
+		get_parent().add_child(instance2)
+	
 # Collecting coins
 
 func collect_coin():
@@ -141,8 +163,7 @@ func collect_donut():
 	donut_collected.emit(donuts)
 
 func _on_coin_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _on_donut_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
