@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743899970
+::res://::1743941108
 export_presets.cfg::TextFile::-1::1743898683::0::1::::<><>::
 icon.svg::CompressedTexture2D::7879886542185885453::1743898683::1743898751::1::::<><>::
 ::res://models/::1743898751
@@ -17,8 +17,9 @@ Roof Flat Center.glb::PackedScene::8837552791090137224::1743898683::1743898751::
 Roof Flat Center_colormap.png::CompressedTexture2D::7124710933548923123::1743898683::1743898751::1::::<><>::
 TrashBag_2.fbx::PackedScene::5949196021950415176::1743898683::1743898751::1::::<><>::uid://c6ua2kg6py5ms::::res://models/TrashBag_2_0.png
 TrashBag_2_0.png::CompressedTexture2D::6990031827613683250::1743898683::1743898751::1::::<><>::
-::res://objects/::1743899881
-bg-game.tscn::PackedScene::3104419352243127107::1743899608::0::1::::<><>::uid://cyg54qcul3foa::::res://sounds/game-music-loop-7-145285.mp3
+::res://objects/::1743929962
+bg-game.tscn::PackedScene::3104419352243127107::1743929962::0::1::::<><>::uid://cyg54qcul3foa::::res://sounds/game-music-loop-7-145285.mp3
+bullet.tscn::PackedScene::2724351523144120159::1743929962::0::1::::<><>::res://scripts/bullet.gd
 coin.gd::GDScript::-1::1743898683::0::1::::<>Area3D<>::
 coin.tscn::PackedScene::2312315768774842418::1743898683::0::1::::<><>::res://scripts/coin.gd
 crate (2).tscn::PackedScene::5697761319480415844::1743898683::0::1::::<><>::
@@ -29,23 +30,25 @@ Dumpsters.tscn::PackedScene::4635890929395922781::1743898683::0::1::::<><>::uid:
 large_robot.tscn::PackedScene::8132468349975304801::1743898683::0::1::::<><>::uid://dvt0yxqlvgeoq::::res://models/Robot Enemy Large.glb<>res://scripts/large_robot.gd
 node_3d.tscn::PackedScene::7983923126117948165::1743899133::0::1::::<><>::
 player.gd::GDScript::-1::1743898683::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::1571515758744151849::1743899881::0::1::::<><>::res://scripts/player.gd<>uid://ky6m3bwgskat::::res://models/Mech.glb
+player.tscn::PackedScene::1571515758744151849::1743929962::0::1::::<><>::res://scripts/player.gd<>uid://ky6m3bwgskat::::res://models/Mech.glb
 roof.tscn::PackedScene::3072751623576240128::1743898683::0::1::::<><>::uid://dx58g588il18g::::res://models/Roof Flat Center.glb
 root_node.gd::GDScript::-1::1743898683::0::1::::<>Node3D<>::
-small_robot.tscn::PackedScene::8156401188595035811::1743898683::0::1::::<><>::uid://dxsf0gbems585::::res://models/Robot Enemy.glb<>res://scripts/small_robot.gd
+small_robot.tscn::PackedScene::8156401188595035811::1743929962::0::1::::<><>::uid://dxsf0gbems585::::res://models/Robot Enemy.glb<>res://scripts/small_robot.gd
 trash_bag.tscn::PackedScene::473674741696807836::1743898683::0::1::::<><>::uid://c6ua2kg6py5ms::::res://models/TrashBag_2_0.png
-::res://scenes/::1743899871
-main.tscn::PackedScene::6750877392130352399::1743899810::0::1::::<><>::uid://wnivt85d685b::::res://scenes/player.tscn<>res://scripts/view.gd<>uid://dn4oth1ukmmm0::::res://scenes/large_robot.tscn<>uid://bj1p1gqdgy1ay::::res://scenes/roof.tscn<>uid://doha0ayin2nnn::::res://scenes/small_robot.tscn<>uid://b7bwpf6gc8rov::::res://scenes/Dumpsters.tscn<>uid://cngbkcy15feee::::res://scenes/crate (2).tscn<>res://scripts/hitbox_large.gd<>res://scripts/hitbox.gd<>uid://62nli1x8on57::::res://scenes/donut.tscn<>uid://g0pma8nweaq3::::res://scenes/trash_bag.tscn<>uid://77drdlegobp7::::res://scenes/coin.tscn<>uid://bkh2lle6g1yj8::::res://scenes/bg-game.tscn
-::res://scripts/::1743899881
-coin.gd::GDScript::-1::1743898683::0::1::::<>Area3D<>::
+::res://scenes/::1743930879
+main.tscn::PackedScene::6750877392130352399::1743930879::0::1::::<><>::uid://wnivt85d685b::::res://objects/player.tscn<>res://scripts/view.gd<>uid://dn4oth1ukmmm0::::res://objects/large_robot.tscn<>uid://bj1p1gqdgy1ay::::res://objects/roof.tscn<>uid://doha0ayin2nnn::::res://objects/small_robot.tscn<>uid://b7bwpf6gc8rov::::res://objects/Dumpsters.tscn<>uid://cngbkcy15feee::::res://objects/crate (2).tscn<>res://scripts/hitbox_large.gd<>res://scripts/hitbox.gd<>uid://62nli1x8on57::::res://objects/donut.tscn<>uid://g0pma8nweaq3::::res://objects/trash_bag.tscn<>uid://77drdlegobp7::::res://objects/coin.tscn<>uid://bkh2lle6g1yj8::::res://objects/bg-game.tscn
+::res://scripts/::1743930879
+audio.gd::GDScript::-1::1743900768::0::1::::<>Node<>::
+bullet.gd::GDScript::-1::1743914585::0::1::::<>Node3D<>::
+coin.gd::GDScript::-1::1743901364::0::1::::<>Area3D<>::
 donut.gd::GDScript::-1::1743898683::0::1::::<>Area3D<>::
 export_presets.cfg::TextFile::-1::1743898683::0::1::::<><>::
 global.gd::GDScript::-1::1743898683::0::1::::<>Node<>::
-hitbox.gd::GDScript::-1::1743898683::0::1::::<>Area3D<>::
+hitbox.gd::GDScript::-1::1743930879::0::1::::<>Area3D<>::
 hitbox_large.gd::GDScript::-1::1743898683::0::1::::<>Area3D<>::
 large_robot.gd::GDScript::-1::1743898683::0::1::::<>CharacterBody3D<>::
 mech.gd::GDScript::-1::1743898683::0::1::::<>Node3D<>::
-player.gd::GDScript::-1::1743899577::0::1::::<>CharacterBody3D<>::
+player.gd::GDScript::-1::1743928676::0::1::::<>CharacterBody3D<>::
 root_node.gd::GDScript::-1::1743898683::0::1::::<>Node3D<>::
 small_robot.gd::GDScript::-1::1743898683::0::1::::<>CharacterBody3D<>::
 view.gd::GDScript::-1::1743899881::0::1::::<>Node3D<>::

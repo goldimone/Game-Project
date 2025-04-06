@@ -28,17 +28,19 @@ shape = SubResource("BoxShape3D_nfak4")
 [node name="Character" parent="." instance=ExtResource("1_mpbrr")]
 
 [node name="Skeleton3D" parent="Character/RootNode/RobotArmature" index="0"]
-bones/0/position = Vector3(7.27596e-12, -0.00909037, 0.017456)
-bones/0/rotation = Quaternion(0.580261, -2.51569e-05, -2.25007e-05, 0.814431)
-bones/2/rotation = Quaternion(0.172875, 8.94956e-08, 2.55092e-08, 0.984944)
-bones/3/rotation = Quaternion(0.215493, 1.65434e-05, 1.90987e-05, 0.976505)
-bones/4/rotation = Quaternion(0.598136, 4.28171e-05, 3.28102e-05, 0.801395)
-bones/6/rotation = Quaternion(0.908572, -0.000229787, 7.94844e-05, 0.417729)
-bones/7/rotation = Quaternion(9.35067e-05, 0.599761, 0.800179, -8.10695e-05)
-bones/9/rotation = Quaternion(0.908149, 0.000190957, -0.000111726, 0.418647)
-bones/10/rotation = Quaternion(-9.34804e-05, 0.600021, 0.799985, 8.10998e-05)
-bones/16/position = Vector3(0.00998353, -0.00058392, 0.000953062)
-bones/18/position = Vector3(-0.00998353, -0.000619417, 0.000953062)
+bones/0/position = Vector3(0.000247332, -0.00924212, 0.0133474)
+bones/0/rotation = Quaternion(0.579088, 0.0673006, 0.0937939, 0.80705)
+bones/2/rotation = Quaternion(0.139689, 0.000208725, 0.00122841, 0.990195)
+bones/3/rotation = Quaternion(0.221343, 0.171374, -0.00378958, 0.960012)
+bones/4/rotation = Quaternion(0.576986, -0.00219893, 0.00156554, 0.81675)
+bones/6/rotation = Quaternion(0.789471, 0.111544, 0.140117, 0.587079)
+bones/7/rotation = Quaternion(0.000100492, 0.50922, 0.860636, -6.88967e-05)
+bones/9/rotation = Quaternion(0.891793, -0.0219638, -0.0197952, 0.451476)
+bones/10/rotation = Quaternion(-0.000104959, 0.440097, 0.89795, 5.94495e-05)
+bones/16/position = Vector3(0.0132035, -0.000673532, 0.000953062)
+bones/16/rotation = Quaternion(0, 1.94171e-31, 0.941991, -0.335637)
+bones/18/position = Vector3(-0.0127492, -0.000673532, 0.000953062)
+bones/18/rotation = Quaternion(-1.64728e-24, 1.52917e-25, 0.995719, 0.0924323)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 amount = 3
