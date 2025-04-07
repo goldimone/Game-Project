@@ -14,5 +14,8 @@ func _on_body_exited(body):
 		$Timer.stop()
 
 func _on_timer_timeout():
-	Global.player.health -= 25
+	if !(Global.player.health <= 0): 
+		Global.player.health -= 25
+	else:
+		$Timer.disconnect("timeout", _on_timer_timeout)
 	print("health: ", Global.player.health)

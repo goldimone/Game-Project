@@ -10,6 +10,7 @@ var walking = false
 var attacking = false
 
 @onready var animation = $Enemy/AnimationPlayer
+@onready var attack = $Attack
 
 func ready():
 	start_position = position.x
@@ -40,6 +41,7 @@ func _process(delta):
 		animation.play("CharacterArmature|Walk", 0.1)
 	elif walking == false && attacking == true:
 		direction = 0
+		Audio.play("res://audio/attack.mp3")
 		animation.play("CharacterArmature|Attack", 0.1)
 		await get_tree().create_timer(1.0).timeout
 		direction = current_dir

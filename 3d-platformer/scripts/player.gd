@@ -5,10 +5,9 @@ signal donut_collected
 
 @export_subgroup("Components")
 @export var view: Node3D
-@onready var coin_collect: AudioStreamPlayer3D = $CoinCollect
 
 @export_subgroup("Properties")
-@export var movement_speed = 350
+@export var movement_speed = 350	
 @export var jump_strength = 12
 
 var movement_velocity: Vector3
@@ -23,12 +22,18 @@ var jump_double = true
 var coins = 0
 var donuts = 0
 var health = 100
+var game_over_play_count = 0
 
 
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 @onready var gun1 = $RayCast3D
 @onready var gun2 = $RayCast3D2
+@onready var coin_ping = $Coin
+@onready var donut_ping = $Donut
+@onready var game_over_ping = $GameOver
+@onready var background = $"../BG_Music"
+@onready var jump_ping = $Jump
 
 #Bullets
 var bullets = load("res://objects/bullet.tscn")
@@ -42,7 +47,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if health <= 0:
-		Audio.play("res://sounds/game over sound.mp3")
+		game_over()
+		
+func game_over():
+	background.stop()
+	
+	if !game_over_ping.is_playing() && game_over_play_count == 0:
+		game_over_ping.play()
+		game_over_play_count += 1
+	elif !game_over_ping.is_playing():
+		game_over_play_count = 0
 		get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
@@ -110,9 +124,10 @@ func handle_controls(delta):
 	if Input.is_action_just_released("jump"):
 		if jump_single or jump_double:
 			jump()
+			jump_ping.play()
 	
 	if Input.is_action_just_pressed("shoot"):
-		Audio.play("res://sounds/shoot sound.mp3")
+		Audio.play("res://audio/attack.mp3")
 		shoots()
 	
 # Handle gravity
@@ -152,6 +167,7 @@ func shoots():
 
 func collect_coin():
 	coins += 1
+	coin_ping.play()
 	coin_collected.emit(coins)
 	
 func collect_donut():

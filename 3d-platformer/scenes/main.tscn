@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3gf711eygx88"]
+[gd_scene load_steps=18 format=3 uid="uid://c3gf711eygx88"]
 
 [ext_resource type="PackedScene" uid="uid://wnivt85d685b" path="res://objects/player.tscn" id="1_3ofs5"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="2_cae4d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://g0pma8nweaq3" path="res://objects/trash_bag.tscn" id="8_1wp17"]
 [ext_resource type="PackedScene" uid="uid://77drdlegobp7" path="res://objects/coin.tscn" id="9_3733b"]
 [ext_resource type="PackedScene" uid="uid://bkh2lle6g1yj8" path="res://objects/bg-game.tscn" id="13_gqkqd"]
+[ext_resource type="AudioStream" uid="uid://c8w5x8lxgpk54" path="res://audio/game loop.mp3" id="14_vyirx"]
 
 [sub_resource type="Environment" id="Environment_djdn4"]
 background_mode = 1
@@ -140,7 +141,8 @@ light_energy = 25.0
 omni_range = 25.0
 
 [node name="BG_Music" parent="." instance=ExtResource("13_gqkqd")]
-volume_db = -28.108
+stream = ExtResource("14_vyirx")
+volume_db = -10.775
 
 [connection signal="coin_collected" from="Player" to="Player" method="_on_coin_collected"]
 [connection signal="donut_collected" from="Player" to="Player" method="_on_donut_collected"]
